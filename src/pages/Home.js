@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFetch } from "../hooks/useFetch";
 import './Home.css';
+import { NavLink, Link } from 'react-router-dom';
 
 export default function Home() {
   const {data: articles, isPending, error} = 
@@ -14,6 +15,7 @@ export default function Home() {
         <div key={article.id} className="card">
           <h3>{article.title}</h3>
           <p>{article.author}</p>
+          <Link to={`/article/${article.id}`}>Read More...</Link>
         </div>
       ))}
     </div>  
